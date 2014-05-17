@@ -7,7 +7,9 @@ use CL\LunaCore\Rel\UpdateInterface;
 use CL\LunaCore\Rel\AbstractRelOne;
 use CL\LunaCore\Model\AbstractModel;
 use CL\LunaCore\Repo\AbstractLink;
+use CL\LunaCore\Repo\LinkOne;
 use CL\Util\Arr;
+use InvalidArgumentException;
 
 /**
  * @author     Ivan Kerin
@@ -86,6 +88,10 @@ class One extends AbstractRelOne implements UpdateInterface
      */
     public function update(AbstractModel $model, AbstractLink $link)
     {
+        if (! ($link instanceof LinkOne)) {
+            throw new InvalidArgumentException('Must use a LinkOne');
+        }
+
         $model->{$this->key} = $link->get()->getId();
     }
 }

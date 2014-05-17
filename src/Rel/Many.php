@@ -7,7 +7,9 @@ use CL\LunaCore\Rel\UpdateInterface;
 use CL\LunaCore\Rel\AbstractRelMany;
 use CL\LunaCore\Model\AbstractModel;
 use CL\LunaCore\Repo\AbstractLink;
+use CL\LunaCore\Repo\LinkMany;
 use CL\Util\Arr;
+use InvalidArgumentException;
 
 /**
  * @author     Ivan Kerin
@@ -80,6 +82,10 @@ class Many extends AbstractRelMany implements UpdateInterface
      */
     public function update(AbstractModel $model, AbstractLink $link)
     {
+        if (! ($link instanceof LinkMany)) {
+            throw new InvalidArgumentException('Must use a LinkMany');
+        }
+
         foreach ($link->getAdded() as $added) {
             $added->{$this->key} = $model->getId();
         }
