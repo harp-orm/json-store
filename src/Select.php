@@ -2,11 +2,7 @@
 
 namespace CL\LunaJsonStore;
 
-use CL\LunaCore\Repo\AbstractRepo;
 use CL\LunaCore\Model\AbstractModel;
-use SplObjectStorage;
-use InvalidArgumentException;
-use LogicException;
 
 /*
  * @author     Ivan Kerin

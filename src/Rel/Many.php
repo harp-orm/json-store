@@ -54,7 +54,7 @@ class Many extends AbstractRelMany implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel[]   $models
+     * @param  AbstractModel[] $models
      * @return boolean
      */
     public function hasForeign(array $models)
@@ -65,7 +65,7 @@ class Many extends AbstractRelMany implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel[]  $models
+     * @param  AbstractModel[] $models
      * @return AbstractModel[]
      */
     public function loadForeign(array $models)
@@ -77,8 +77,8 @@ class Many extends AbstractRelMany implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel $model
-     * @param  AbstractLink  $link
+     * @param AbstractModel $model
+     * @param AbstractLink  $link
      */
     public function update(AbstractModel $model, AbstractLink $link)
     {

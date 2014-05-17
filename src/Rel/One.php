@@ -60,7 +60,7 @@ class One extends AbstractRelOne implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel[]   $models
+     * @param  AbstractModel[] $models
      * @return boolean
      */
     public function hasForeign(array $models)
@@ -71,7 +71,7 @@ class One extends AbstractRelOne implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel[]  $models [description]
+     * @param  AbstractModel[] $models [description]
      * @return AbstractModel[]
      */
     public function loadForeign(array $models)
@@ -83,8 +83,8 @@ class One extends AbstractRelOne implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel $model [description]
-     * @param  AbstractLink  $link  [description]
+     * @param AbstractModel $model [description]
+     * @param AbstractLink  $link  [description]
      */
     public function update(AbstractModel $model, AbstractLink $link)
     {

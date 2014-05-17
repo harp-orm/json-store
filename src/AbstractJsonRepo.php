@@ -6,7 +6,6 @@ use CL\LunaCore\Repo\AbstractRepo;
 use CL\LunaCore\Model\AbstractModel;
 use SplObjectStorage;
 use InvalidArgumentException;
-use LogicException;
 
 /*
  * @author     Ivan Kerin
@@ -58,8 +57,6 @@ abstract class AbstractJsonRepo extends AbstractRepo
     }
 
     /**
-     * @param  string $name name of the property
-     * @param  array  $values values to search for
      * @return Select
      */
     public function findAll()
