@@ -27,8 +27,7 @@ class Many extends AbstractRelMany implements UpdateInterface
         AbstractJsonRepo $repo,
         AbstractJsonRepo $foreignRepo,
         array $options = array()
-    )
-    {
+    ) {
         $this->key = lcfirst($repo->getName()).'Id';
 
         parent::__construct($name, $repo, $foreignRepo, $options);

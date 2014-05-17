@@ -33,8 +33,7 @@ class One extends AbstractRelOne implements UpdateInterface
         AbstractJsonRepo $repo,
         AbstractJsonRepo $foreignRepo,
         array $options = array()
-    )
-    {
+    ) {
         $this->key = lcfirst($foreignRepo->getName()).'Id';
 
         parent::__construct($name, $repo, $foreignRepo, $options);
