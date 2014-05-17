@@ -4,7 +4,7 @@ namespace CL\LunaJsonStore\Test;
 
 use CL\LunaJsonStore\Rel;
 use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Repo\LinkMany;
+use CL\LunaCore\Repo\LinkOne;
 
 class RelOneTest extends AbstractTestCase
 {
