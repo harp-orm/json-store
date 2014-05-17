@@ -44,7 +44,7 @@ abstract class AbstractJsonRepo extends AbstractRepo
     }
 
     /**
-     * @param  string $key
+     * @param  string             $key
      * @return AbstractModel|null
      */
     public function selectWithId($key)

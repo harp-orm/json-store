@@ -12,8 +12,8 @@ use CL\LunaCore\Model\AbstractModel;
 class Select
 {
     /**
-     * @param  mixed  $value
-     * @param  mixed  $condition
+     * @param  mixed   $value
+     * @param  mixed   $condition
      * @return boolean
      */
     public static function isConditionMatch($value, $condition)
@@ -58,7 +58,7 @@ class Select
 
     /**
      * @param  string $name
-     * @param  mixed $value
+     * @param  mixed  $value
      * @return Select $this
      */
     public function where($name, $value)
