@@ -4,7 +4,7 @@ namespace CL\LunaJsonStore\Test;
 
 use CL\LunaJsonStore\Rel;
 use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Repo\LinkOne;
+use CL\LunaCore\Repo\LinkMany;
 
 class RelOneTest extends AbstractTestCase
 {
@@ -125,5 +125,20 @@ class RelOneTest extends AbstractTestCase
         $rel->update($user, new LinkOne($rel, $post));
 
         $this->assertEquals(5, $user->postId);
+    }
+
+    /**
+     * @covers CL\LunaJsonStore\Rel\One::update
+     * @expectedException InvalidArgumentException
+     */
+    public function testUpdateWithWrongArguments()
+    {
+        $rel = new Rel\One('test', Repo\User::get(), Repo\Post::get());
+
+        $link = $this->getMockForAbstractClass('CL\LunaCore\Repo\LinkMany', [], '', false);
+
+        $user = new Model\User(['id' => 2]);
+
+        $rel->update($user, $link);
     }
 }

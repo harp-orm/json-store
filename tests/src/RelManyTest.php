@@ -132,4 +132,20 @@ class RelManyTest extends AbstractTestCase
         $this->assertEquals(null, $post1->userId);
         $this->assertEquals(2, $post2->userId);
     }
+
+    /**
+     * @covers CL\LunaJsonStore\Rel\Many::update
+     * @expectedException InvalidArgumentException
+     */
+    public function testUpdateWithWrongArguments()
+    {
+        $rel = new Rel\Many('test', Repo\User::get(), Repo\Post::get());
+
+        $link = $this->getMockForAbstractClass('CL\LunaCore\Repo\LinkOne', [], '', false);
+
+        $user = new Model\User(['id' => 2]);
+
+        $rel->update($user, $link);
+    }
+
 }
