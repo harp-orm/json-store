@@ -1,0 +1,30 @@
+{
+    "name": "clippings/luna-json-store",
+    "description": "Persistence layer for Luna, based on JSON files",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Ivan Kerin",
+            "email": "ikerin@gmail.com",
+            "role": "Author"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/clippings/luna-core"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "clippings/luna-core": "dev-master",
+        "clippings/util": "dev-master",
+        "clippings/carpo": "dev-master"
+    },
+    "require-dev": {
+        "clippings/env-backup": "~0.2.5"
+    },
+    "autoload": {
+        "psr-4": {"CL\\LunaJsonStore\\": "src/"}
+    }
+}
