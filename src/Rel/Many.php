@@ -51,7 +51,7 @@ class Many extends AbstractRelMany
     }
 
     /**
-     * @param  Models $models
+     * @param  Models  $models
      * @return boolean
      */
     public function hasForeign(Models $models)
@@ -77,7 +77,7 @@ class Many extends AbstractRelMany
 
     /**
      * @param AbstractModel $model
-     * @param LinkMany  $link
+     * @param LinkMany      $link
      */
     public function update(AbstractModel $model, LinkMany $link)
     {

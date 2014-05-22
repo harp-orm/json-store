@@ -75,8 +75,8 @@ class Find extends AbstractFind
 
     /**
      * @param  string $property
-     * @param  mixed $value
-     * @return Find $this
+     * @param  mixed  $value
+     * @return Find   $this
      */
     public function where($property, $value)
     {
@@ -87,8 +87,8 @@ class Find extends AbstractFind
 
     /**
      * @param  string $property
-     * @param  mixed $value
-     * @return Find $this
+     * @param  mixed  $value
+     * @return Find   $this
      */
     public function whereNot($property, $value)
     {
@@ -99,8 +99,8 @@ class Find extends AbstractFind
 
     /**
      * @param  string $property
-     * @param  array $value
-     * @return Find $this
+     * @param  array  $value
+     * @return Find   $this
      */
     public function whereIn($property, array $value)
     {
@@ -110,7 +110,7 @@ class Find extends AbstractFind
     }
 
     /**
-     * @param  int $limit
+     * @param  int  $limit
      * @return Find $this
      */
     public function limit($limit)
@@ -121,7 +121,7 @@ class Find extends AbstractFind
     }
 
     /**
-     * @param  int $offset
+     * @param  int  $offset
      * @return Find $this
      */
     public function offset($offset)
@@ -152,13 +152,14 @@ class Find extends AbstractFind
     }
 
     /**
-     * @param  array  $properties
+     * @param  array         $properties
      * @return AbstractModel
      */
     public function newModel(array $properties)
     {
         if ($this->getRepo()->getInherited()) {
             $class = $properties['class'];
+
             return new $class($properties, State::SAVED);
         } else {
             return $this->getRepo()->newInstance($properties, State::SAVED);

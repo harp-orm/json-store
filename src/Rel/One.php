@@ -57,7 +57,7 @@ class One extends AbstractRelOne
     }
 
     /**
-     * @param  Models $models
+     * @param  Models  $models
      * @return boolean
      */
     public function hasForeign(Models $models)
@@ -68,8 +68,8 @@ class One extends AbstractRelOne
     }
 
     /**
-     * @param  Models $models
-     * @param  int $flags
+     * @param  Models          $models
+     * @param  int             $flags
      * @return AbstractModel[]
      */
     public function loadForeign(Models $models, $flags = null)
@@ -84,7 +84,7 @@ class One extends AbstractRelOne
 
     /**
      * @param AbstractModel $model
-     * @param LinkOne  $link
+     * @param LinkOne       $link
      */
     public function update(AbstractModel $model, LinkOne $link)
     {
