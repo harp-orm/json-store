@@ -30,11 +30,6 @@ class Find extends AbstractFind
     }
 
     /**
-     * @var AbstractJsonRepo
-     */
-    private $repo;
-
-    /**
      * @var array
      */
     private $conditions = array();
@@ -52,14 +47,6 @@ class Find extends AbstractFind
     public function __construct(AbstractJsonRepo $repo)
     {
         $this->repo = $repo;
-    }
-
-    /**
-     * @return AbstractJsonRepo
-     */
-    public function getRepo()
-    {
-        return $this->repo;
     }
 
     /**
@@ -118,7 +105,7 @@ class Find extends AbstractFind
     }
 
     /**
-     * @param  int $limit
+     * @param  int $offset
      * @return Find $this
      */
     public function offset($offset)

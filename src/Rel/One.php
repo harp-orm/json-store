@@ -7,7 +7,6 @@ use CL\LunaCore\Rel\AbstractRelOne;
 use CL\LunaCore\Model\AbstractModel;
 use CL\LunaCore\Model\Models;
 use CL\LunaCore\Repo\LinkOne;
-use InvalidArgumentException;
 
 /**
  * @author     Ivan Kerin

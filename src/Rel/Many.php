@@ -6,9 +6,7 @@ use CL\LunaJsonStore\AbstractJsonRepo;
 use CL\LunaCore\Rel\AbstractRelMany;
 use CL\LunaCore\Model\AbstractModel;
 use CL\LunaCore\Model\Models;
-use CL\LunaCore\Repo\AbstractLink;
 use CL\LunaCore\Repo\LinkMany;
-use InvalidArgumentException;
 
 /**
  * @author     Ivan Kerin

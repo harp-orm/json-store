@@ -3,7 +3,6 @@
 namespace CL\LunaJsonStore;
 
 use CL\LunaCore\Save\AbstractSaveRepo;
-use CL\LunaCore\Model\AbstractModel;
 use CL\LunaCore\Model\Models;
 use InvalidArgumentException;
 
