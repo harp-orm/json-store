@@ -69,7 +69,10 @@ class IntegrationTest extends AbstractTestCase
         }
     }
 
-    public function testPersist()
+    /**
+     * @coversNothing
+     */
+    public function testSave()
     {
         $user1 = Repo\User::get()->find(1);
 

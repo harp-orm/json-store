@@ -23,6 +23,8 @@ class FindTest extends AbstractTestCase
     {
         return [
             ['10', '10', true],
+            ['10', new Not('10'), false],
+            ['10', new Not('14'), true],
             ['10', '20', false],
             ['10', ['10', '20'], true],
             ['10', ['20'], false],
@@ -55,6 +57,10 @@ class FindTest extends AbstractTestCase
      * @covers CL\LunaJsonStore\Find::where
      * @covers CL\LunaJsonStore\Find::whereIn
      * @covers CL\LunaJsonStore\Find::whereNot
+     * @covers CL\LunaJsonStore\Find::limit
+     * @covers CL\LunaJsonStore\Find::getLimit
+     * @covers CL\LunaJsonStore\Find::offset
+     * @covers CL\LunaJsonStore\Find::getOffset
      * @covers CL\LunaJsonStore\Find::getConditions
      */
     public function testConditions()
@@ -66,7 +72,9 @@ class FindTest extends AbstractTestCase
         $find
             ->where('name', '10')
             ->whereIn('id', [8, 29])
-            ->whereNot('test', '21');
+            ->whereNot('test', '21')
+            ->limit(9)
+            ->offset(3);
 
         $expected = [
             'name' => '10',
@@ -75,6 +83,8 @@ class FindTest extends AbstractTestCase
         ];
 
         $this->assertEquals($expected, $find->getConditions());
+        $this->assertEquals(9, $find->getLimit());
+        $this->assertEquals(3, $find->getOffset());
     }
 
     public function dataIsMatch()
@@ -107,8 +117,21 @@ class FindTest extends AbstractTestCase
     public function dataNewModel()
     {
         return [
-            [['id' => 8, 'name' => '10', 'class' => __NAMESPACE__.'\Model\User'], new Model\User(['id' => 8, 'name' => '10'], State::SAVED)],
-            [['id' => 29, 'name' => '10', 'class' => __NAMESPACE__.'\Model\Professional'], new Model\Professional(['id' => 29, 'name' => '10'], State::SAVED)],
+            [
+                ['id' => 8, 'name' => '10', 'class' => __NAMESPACE__.'\Model\User'],
+                Repo\User::get(),
+                new Model\User(['id' => 8, 'name' => '10'], State::SAVED)
+            ],
+            [
+                ['id' => 29, 'name' => '10', 'class' => __NAMESPACE__.'\Model\Professional'],
+                Repo\User::get(),
+                new Model\Professional(['id' => 29, 'name' => '10'], State::SAVED)
+            ],
+            [
+                ['id' => 4],
+                Repo\Post::get(),
+                new Model\Post(['id' => 4], State::SAVED),
+            ],
         ];
     }
 
@@ -116,9 +139,9 @@ class FindTest extends AbstractTestCase
      * @covers CL\LunaJsonStore\Find::newModel
      * @dataProvider dataNewModel
      */
-    public function testNewModel($properties, $expected)
+    public function testNewModel($properties, $repo, $expected)
     {
-        $find = new Find(Repo\User::get());
+        $find = new Find($repo);
 
         $this->assertEquals($expected, $find->newModel($properties));
     }
