@@ -2,9 +2,9 @@
 
 namespace CL\LunaJsonStore;
 
-use CL\LunaCore\Repo\AbstractRepo;
+use CL\LunaCore\Save\AbstractSaveRepo;
 use CL\LunaCore\Model\AbstractModel;
-use SplObjectStorage;
+use CL\LunaCore\Model\Models;
 use InvalidArgumentException;
 
 /*
@@ -12,7 +12,7 @@ use InvalidArgumentException;
  * @copyright  (c) 2014 Clippings Ltd.
  * @license    http://www.opensource.org/licenses/isc-license.txt
  */
-abstract class AbstractJsonRepo extends AbstractRepo
+abstract class AbstractJsonRepo extends AbstractSaveRepo
 {
     /**
      * @var string
@@ -44,24 +44,11 @@ abstract class AbstractJsonRepo extends AbstractRepo
     }
 
     /**
-     * @param  string             $key
-     * @return AbstractModel|null
-     */
-    public function selectWithId($key)
-    {
-        $contents = $this->getContents();
-
-        if (isset($contents[$key])) {
-            return $this->newInstance($contents[$key], AbstractModel::PERSISTED);
-        }
-    }
-
-    /**
-     * @return Select
+     * @return Find
      */
     public function findAll()
     {
-        return new Select($this);
+        return new Find($this);
     }
 
     /**
@@ -82,7 +69,7 @@ abstract class AbstractJsonRepo extends AbstractRepo
         return $this;
     }
 
-    public function update(SplObjectStorage $models)
+    public function update(Models $models)
     {
         $contents = $this->getContents();
 
@@ -93,7 +80,7 @@ abstract class AbstractJsonRepo extends AbstractRepo
         $this->setContents($contents);
     }
 
-    public function delete(SplObjectStorage $models)
+    public function delete(Models $models)
     {
         $contents = $this->getContents();
 
@@ -104,19 +91,14 @@ abstract class AbstractJsonRepo extends AbstractRepo
         $this->setContents($contents);
     }
 
-    public function insert(SplObjectStorage $models)
+    public function insert(Models $models)
     {
         $contents = $this->getContents();
 
         foreach ($models as $model) {
             $id = $contents ? max(array_keys($contents)) + 1 : 1;
 
-            $model
-                ->setId($id)
-                ->resetOriginals()
-                ->setState(AbstractModel::PERSISTED);
-
-            $contents[$id] = $model->getProperties();
+            $contents[$id] = $model->setId($id)->getProperties();
         }
 
         $this->setContents($contents);

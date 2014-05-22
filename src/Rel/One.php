@@ -3,12 +3,10 @@
 namespace CL\LunaJsonStore\Rel;
 
 use CL\LunaJsonStore\AbstractJsonRepo;
-use CL\LunaCore\Rel\UpdateInterface;
 use CL\LunaCore\Rel\AbstractRelOne;
 use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Repo\AbstractLink;
+use CL\LunaCore\Model\Models;
 use CL\LunaCore\Repo\LinkOne;
-use CL\Util\Arr;
 use InvalidArgumentException;
 
 /**
@@ -16,7 +14,7 @@ use InvalidArgumentException;
  * @copyright  (c) 2014 Clippings Ltd.
  * @license    http://www.opensource.org/licenses/isc-license.txt
  */
-class One extends AbstractRelOne implements UpdateInterface
+class One extends AbstractRelOne
 {
     /**
      * Its protected so it can be modified by the parent class
@@ -60,38 +58,37 @@ class One extends AbstractRelOne implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel[] $models
+     * @param  Models $models
      * @return boolean
      */
-    public function hasForeign(array $models)
+    public function hasForeign(Models $models)
     {
-        $keys = Arr::pluckUniqueProperty($models, $this->key);
+        $keys = array_filter($models->pluckProperty($this->key));
 
         return ! empty($keys);
     }
 
     /**
-     * @param  AbstractModel[] $models [description]
+     * @param  Models $models
+     * @param  int $flags
      * @return AbstractModel[]
      */
-    public function loadForeign(array $models)
+    public function loadForeign(Models $models, $flags = null)
     {
+        $keys = array_filter($models->pluckProperty($this->key));
+
         return $this->getForeignRepo()
             ->findAll()
-            ->where('id', Arr::pluckUniqueProperty($models, $this->key))
-            ->loadRaw();
+            ->whereIn($this->getRepo()->getPrimaryKey(), $keys)
+            ->loadRaw($flags);
     }
 
     /**
-     * @param AbstractModel $model [description]
-     * @param AbstractLink  $link  [description]
+     * @param AbstractModel $model
+     * @param LinkOne  $link
      */
-    public function update(AbstractModel $model, AbstractLink $link)
+    public function update(AbstractModel $model, LinkOne $link)
     {
-        if (! ($link instanceof LinkOne)) {
-            throw new InvalidArgumentException('Must use a LinkOne');
-        }
-
         $model->{$this->key} = $link->get()->getId();
     }
 }

@@ -4,6 +4,7 @@ namespace CL\LunaJsonStore\Test;
 
 use CL\LunaJsonStore\Rel;
 use CL\LunaCore\Model\AbstractModel;
+use CL\LunaCore\Model\Models;
 use CL\LunaCore\Repo\LinkOne;
 
 class RelOneTest extends AbstractTestCase
@@ -71,7 +72,7 @@ class RelOneTest extends AbstractTestCase
     {
         $rel = new Rel\One('test', Repo\User::get(), Repo\Post::get());
 
-        $this->assertEquals($expected, $rel->hasForeign($models));
+        $this->assertEquals($expected, $rel->hasForeign(new Models($models)));
     }
 
     /**
@@ -96,10 +97,11 @@ class RelOneTest extends AbstractTestCase
 
         $rel = new Rel\One('test', Repo\User::get(), $repo);
 
-        $models = [
+        $models = new Models([
             new Model\User(['id' => 2, 'postId' => 3]),
-            new Model\User(['id' => 2, 'postId' => 8])
-        ];
+            new Model\User(['id' => 2, 'postId' => 8]),
+            new Model\User(['id' => 2, 'postId' => null]),
+        ]);
 
         $result = $rel->loadForeign($models);
 
@@ -107,7 +109,7 @@ class RelOneTest extends AbstractTestCase
 
         foreach ([0 => 3, 1 => 8] as $index => $id) {
             $this->assertInstanceOf(__NAMESPACE__.'\Model\Post', $result[$index]);
-            $this->assertTrue($result[$index]->isPersisted());
+            $this->assertTrue($result[$index]->isSaved());
             $this->assertEquals($id, $result[$index]->id);
         }
     }
@@ -125,20 +127,5 @@ class RelOneTest extends AbstractTestCase
         $rel->update($user, new LinkOne($rel, $post));
 
         $this->assertEquals(5, $user->postId);
-    }
-
-    /**
-     * @covers CL\LunaJsonStore\Rel\One::update
-     * @expectedException InvalidArgumentException
-     */
-    public function testUpdateWithWrongArguments()
-    {
-        $rel = new Rel\One('test', Repo\User::get(), Repo\Post::get());
-
-        $link = $this->getMockForAbstractClass('CL\LunaCore\Repo\LinkMany', [], '', false);
-
-        $user = new Model\User(['id' => 2]);
-
-        $rel->update($user, $link);
     }
 }

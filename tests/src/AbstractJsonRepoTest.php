@@ -6,9 +6,9 @@ use CL\EnvBackup\Env;
 use CL\EnvBackup\FileParam;
 use CL\LunaJsonStore\AbstractJsonRepo;
 use CL\LunaCore\Model\AbstractModel;
+use CL\LunaCore\Model\Models;
 use CL\LunaJsonStore\Test\Repo;
 use CL\LunaJsonStore\Test\Model;
-use SplObjectStorage;
 use InvalidArgumentException;
 
 class AbstractJsonRepoTest extends AbstractTestCase
@@ -44,30 +44,6 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::selectWithId
-     */
-    public function testSelectWithId()
-    {
-        $repo = $this->getRepo();
-
-        $repo
-            ->expects($this->exactly(2))
-            ->method('getContents')
-            ->will($this->returnValue([
-                3 => ['id' => 3, 'name' => 'test 3'],
-            ]));
-
-        $result = $repo->selectWithId(4);
-        $this->assertNull($result);
-
-        $result = $repo->selectWithId(3);
-
-        $this->assertInstanceOf(__NAMESPACE__.'\Model\User', $result);
-        $this->assertEquals(3, $result->id);
-        $this->assertEquals('test 3', $result->name);
-    }
-
-    /**
      * @covers CL\LunaJsonStore\AbstractJsonRepo::findAll
      */
     public function testFindAll()
@@ -76,7 +52,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
 
         $result = $repo->findAll();
 
-        $this->assertInstanceOf('CL\LunaJsonStore\Select', $result);
+        $this->assertInstanceOf('CL\LunaJsonStore\Find', $result);
         $this->assertSame($repo, $result->getRepo());
     }
 
@@ -133,6 +109,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
             'password' => null,
             'addressId' => null,
             'isBlocked' => false,
+            'class' => __NAMESPACE__.'\Model\User',
         ]);
 
         $model5 = new Model\User([
@@ -141,6 +118,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
             'password' => null,
             'addressId' => null,
             'isBlocked' => true,
+            'class' => __NAMESPACE__.'\Model\User',
         ]);
 
         $repo
@@ -157,10 +135,6 @@ class AbstractJsonRepoTest extends AbstractTestCase
         $model5->password = 'pass';
         $model5->name = '200';
 
-        $update = new SplObjectStorage();
-        $update->attach($model3);
-        $update->attach($model5);
-
         $repo
             ->expects($this->once())
             ->method('setContents')
@@ -171,6 +145,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
                     'password' => null,
                     'addressId' => null,
                     'isBlocked' => true,
+                    'class' => __NAMESPACE__.'\Model\User'
                 ],
                 5 => [
                     'id' => 5,
@@ -178,10 +153,11 @@ class AbstractJsonRepoTest extends AbstractTestCase
                     'password' => 'pass',
                     'addressId' => null,
                     'isBlocked' => true,
+                    'class' => __NAMESPACE__.'\Model\User'
                 ],
             ]));
 
-        $repo->update($update);
+        $repo->update(new Models([$model3, $model5]));
     }
 
     /**
@@ -203,9 +179,6 @@ class AbstractJsonRepoTest extends AbstractTestCase
                 5 => $model5->getProperties(),
             ]));
 
-        $delete = new SplObjectStorage();
-        $delete->attach($model5);
-
         $repo
             ->expects($this->once())
             ->method('setContents')
@@ -213,7 +186,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
                 3 => $model3->getProperties(),
             ]));
 
-        $repo->delete($delete);
+        $repo->delete(new Models([$model5]));
     }
 
     /**
@@ -230,9 +203,6 @@ class AbstractJsonRepoTest extends AbstractTestCase
             ->method('getContents')
             ->will($this->returnValue([]));
 
-        $insert = new SplObjectStorage();
-        $insert->attach($model3);
-
         $repo
             ->expects($this->once())
             ->method('setContents')
@@ -243,10 +213,11 @@ class AbstractJsonRepoTest extends AbstractTestCase
                     'password' => null,
                     'addressId' => null,
                     'isBlocked' => false,
+                    'class' => __NAMESPACE__.'\Model\User',
                 ],
             ]));
 
-        $repo->insert($insert);
+        $repo->insert(new Models([$model3]));
     }
 
     /**
@@ -268,11 +239,9 @@ class AbstractJsonRepoTest extends AbstractTestCase
                     'password' => 'pass',
                     'addressId' => null,
                     'isBlocked' => true,
+                    'class' => __NAMESPACE__.'\Model\User',
                 ],
             ]));
-
-        $insert = new SplObjectStorage();
-        $insert->attach($model3);
 
         $repo
             ->expects($this->once())
@@ -284,6 +253,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
                     'password' => 'pass',
                     'addressId' => null,
                     'isBlocked' => true,
+                    'class' => __NAMESPACE__.'\Model\User'
                 ],
                 6 => [
                     'id' => 6,
@@ -291,9 +261,10 @@ class AbstractJsonRepoTest extends AbstractTestCase
                     'password' => null,
                     'addressId' => null,
                     'isBlocked' => false,
+                    'class' => __NAMESPACE__.'\Model\User'
                 ],
             ]));
 
-        $repo->insert($insert);
+        $repo->insert(new Models([$model3]));
     }
 }

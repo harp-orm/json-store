@@ -33,6 +33,7 @@ class User extends AbstractJsonRepo {
     public function initialize()
     {
         $this
+            ->setInherited(true)
             ->setRels([
                 new Rel\One('address', $this, Address::get()),
                 new Rel\Many('posts', $this, Post::get()),

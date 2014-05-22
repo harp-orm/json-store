@@ -46,12 +46,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clippings/luna-core.git",
-                "reference": "15de4cc293f8de45425ffe49db51bd7807d51d18"
+                "reference": "9a9d0526a42aac0bcc0c8df02b192b79d1833034"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clippings/luna-core/zipball/15de4cc293f8de45425ffe49db51bd7807d51d18",
-                "reference": "15de4cc293f8de45425ffe49db51bd7807d51d18",
+                "url": "https://api.github.com/repos/clippings/luna-core/zipball/9a9d0526a42aac0bcc0c8df02b192b79d1833034",
+                "reference": "9a9d0526a42aac0bcc0c8df02b192b79d1833034",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
                 "source": "https://github.com/clippings/luna-core/tree/master",
                 "issues": "https://github.com/clippings/luna-core/issues"
             },
-            "time": "2014-05-16 09:55:23"
+            "time": "2014-05-21 15:52:40"
         },
         {
             "name": "clippings/util",
@@ -91,12 +91,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clippings/util.git",
-                "reference": "4f433f09ac61d98e56b599512cac2260bdf17ee1"
+                "reference": "1e696104d68c578001c3803499a07d6179633b49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clippings/util/zipball/4f433f09ac61d98e56b599512cac2260bdf17ee1",
-                "reference": "4f433f09ac61d98e56b599512cac2260bdf17ee1",
+                "url": "https://api.github.com/repos/clippings/util/zipball/1e696104d68c578001c3803499a07d6179633b49",
+                "reference": "1e696104d68c578001c3803499a07d6179633b49",
                 "shasum": ""
             },
             "type": "library",
@@ -118,7 +118,7 @@
                 }
             ],
             "description": "General purpose helper methods",
-            "time": "2014-05-15 15:41:04"
+            "time": "2014-05-15 17:15:07"
         }
     ],
     "packages-dev": [

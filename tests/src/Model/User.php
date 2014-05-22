@@ -22,6 +22,7 @@ class User extends AbstractModel {
     public $password;
     public $addressId;
     public $isBlocked = false;
+    public $class;
 
     public function getAddress()
     {

@@ -48,7 +48,8 @@ class IntegrationTest extends AbstractTestCase
                     "name": "name",
                     "password": null,
                     "addressId": 1,
-                    "isBlocked": true
+                    "isBlocked": true,
+                    "class": "CL\\\\LunaJsonStore\\\\Test\\\\Model\\\\User"
                 }
             }'),
             new FileParam(TEST_DIR.'/BlogPost.json', '{}'),
@@ -84,10 +85,10 @@ class IntegrationTest extends AbstractTestCase
         $address = new Model\Address(['name' => 'new name', 'location' => 'new location']);
 
         Repo\User::get()
-            ->persist($user1)
-            ->persist($user2);
+            ->save($user1)
+            ->save($user2);
 
-        Repo\Address::get()->persist($address);
+        Repo\Address::get()->save($address);
 
         $addresses = Repo\Address::get()->findAll()->load();
 
@@ -156,6 +157,7 @@ class IntegrationTest extends AbstractTestCase
                 'password' => null,
                 'addressId' => 1,
                 'isBlocked' => true,
+                'class' => __NAMESPACE__.'\Model\User',
             ],
             2 => [
                 'id' => 2,
@@ -163,6 +165,7 @@ class IntegrationTest extends AbstractTestCase
                 'password' => 'test',
                 'addressId' => 2,
                 'isBlocked' => false,
+                'class' => __NAMESPACE__.'\Model\User',
             ],
         ];
 

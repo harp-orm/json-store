@@ -3,12 +3,11 @@
 namespace CL\LunaJsonStore\Rel;
 
 use CL\LunaJsonStore\AbstractJsonRepo;
-use CL\LunaCore\Rel\UpdateInterface;
 use CL\LunaCore\Rel\AbstractRelMany;
 use CL\LunaCore\Model\AbstractModel;
+use CL\LunaCore\Model\Models;
 use CL\LunaCore\Repo\AbstractLink;
 use CL\LunaCore\Repo\LinkMany;
-use CL\Util\Arr;
 use InvalidArgumentException;
 
 /**
@@ -16,7 +15,7 @@ use InvalidArgumentException;
  * @copyright  (c) 2014 Clippings Ltd.
  * @license    http://www.opensource.org/licenses/isc-license.txt
  */
-class Many extends AbstractRelMany implements UpdateInterface
+class Many extends AbstractRelMany
 {
     /**
      * Its protected so it can be modified by the parent class
@@ -54,38 +53,36 @@ class Many extends AbstractRelMany implements UpdateInterface
     }
 
     /**
-     * @param  AbstractModel[] $models
+     * @param  Models $models
      * @return boolean
      */
-    public function hasForeign(array $models)
+    public function hasForeign(Models $models)
     {
-        $keys = Arr::pluckUniqueProperty($models, 'id');
+        $keys = array_filter($models->pluckProperty($this->getRepo()->getPrimaryKey()));
 
         return ! empty($keys);
     }
 
     /**
-     * @param  AbstractModel[] $models
+     * @param  Models
      * @return AbstractModel[]
      */
-    public function loadForeign(array $models)
+    public function loadForeign(Models $models, $flags = null)
     {
+        $keys = array_filter($models->pluckProperty($this->getRepo()->getPrimaryKey()));
+
         return $this->getForeignRepo()
             ->findAll()
-            ->where($this->key, Arr::pluckUniqueProperty($models, 'id'))
-            ->loadRaw();
+            ->whereIn($this->key, $keys)
+            ->loadRaw($flags);
     }
 
     /**
      * @param AbstractModel $model
-     * @param AbstractLink  $link
+     * @param LinkMany  $link
      */
-    public function update(AbstractModel $model, AbstractLink $link)
+    public function update(AbstractModel $model, LinkMany $link)
     {
-        if (! ($link instanceof LinkMany)) {
-            throw new InvalidArgumentException('Must use a LinkMany');
-        }
-
         foreach ($link->getAdded() as $added) {
             $added->{$this->key} = $model->getId();
         }
