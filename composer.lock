@@ -46,12 +46,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/clippings/luna-core.git",
-                "reference": "9a9d0526a42aac0bcc0c8df02b192b79d1833034"
+                "reference": "d8a2126283e889836d9b5d66701c0f60b9404431"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/clippings/luna-core/zipball/9a9d0526a42aac0bcc0c8df02b192b79d1833034",
-                "reference": "9a9d0526a42aac0bcc0c8df02b192b79d1833034",
+                "url": "https://api.github.com/repos/clippings/luna-core/zipball/d8a2126283e889836d9b5d66701c0f60b9404431",
+                "reference": "d8a2126283e889836d9b5d66701c0f60b9404431",
                 "shasum": ""
             },
             "require": {
@@ -83,7 +83,7 @@
                 "source": "https://github.com/clippings/luna-core/tree/master",
                 "issues": "https://github.com/clippings/luna-core/issues"
             },
-            "time": "2014-05-21 15:52:40"
+            "time": "2014-05-23 14:05:15"
         },
         {
             "name": "clippings/util",

@@ -110,6 +110,16 @@ class Find extends AbstractFind
     }
 
     /**
+     * @return Find   $this
+     */
+    public function clearWhere()
+    {
+        $this->conditions = null;
+
+        return $this;
+    }
+
+    /**
      * @param  int  $limit
      * @return Find $this
      */
@@ -121,12 +131,32 @@ class Find extends AbstractFind
     }
 
     /**
+     * @return Find   $this
+     */
+    public function clearLimit()
+    {
+        $this->limit = null;
+
+        return $this;
+    }
+
+    /**
      * @param  int  $offset
      * @return Find $this
      */
     public function offset($offset)
     {
         $this->offset = $offset;
+
+        return $this;
+    }
+
+    /**
+     * @return Find   $this
+     */
+    public function clearOffset()
+    {
+        $this->offset = 0;
 
         return $this;
     }
@@ -162,7 +192,7 @@ class Find extends AbstractFind
 
             return new $class($properties, State::SAVED);
         } else {
-            return $this->getRepo()->newInstance($properties, State::SAVED);
+            return $this->getRepo()->newModel($properties, State::SAVED);
         }
     }
 

@@ -62,6 +62,9 @@ class FindTest extends AbstractTestCase
      * @covers CL\LunaJsonStore\Find::offset
      * @covers CL\LunaJsonStore\Find::getOffset
      * @covers CL\LunaJsonStore\Find::getConditions
+     * @covers CL\LunaJsonStore\Find::clearWhere
+     * @covers CL\LunaJsonStore\Find::clearLimit
+     * @covers CL\LunaJsonStore\Find::clearOffset
      */
     public function testConditions()
     {
@@ -85,6 +88,15 @@ class FindTest extends AbstractTestCase
         $this->assertEquals($expected, $find->getConditions());
         $this->assertEquals(9, $find->getLimit());
         $this->assertEquals(3, $find->getOffset());
+
+        $find->clearWhere();
+        $this->assertEmpty($find->getConditions());
+
+        $find->clearLimit();
+        $this->assertEmpty($find->getLimit());
+
+        $find->clearOffset();
+        $this->assertEmpty($find->getOffset());
     }
 
     public function dataIsMatch()

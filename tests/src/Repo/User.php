@@ -34,10 +34,8 @@ class User extends AbstractJsonRepo {
     {
         $this
             ->setInherited(true)
-            ->setRels([
-                new Rel\One('address', $this, Address::get()),
-                new Rel\Many('posts', $this, Post::get()),
-            ])
+            ->addRel(new Rel\One('address', $this, Address::get()))
+            ->addRel(new Rel\Many('posts', $this, Post::get()))
             ->setAsserts([
                 new Assert\Present('name'),
             ]);

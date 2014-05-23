@@ -31,9 +31,6 @@ class Address extends AbstractJsonRepo {
 
     public function initialize()
     {
-        $this
-            ->setRels([
-                new Rel\One('user', $this, Address::get()),
-            ]);
+        $this->addRel(new Rel\One('user', $this, Address::get()));
     }
 }
