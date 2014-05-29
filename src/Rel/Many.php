@@ -1,13 +1,13 @@
 <?php
 
-namespace CL\LunaJsonStore\Rel;
+namespace Harp\JsonStore\Rel;
 
-use CL\LunaJsonStore\AbstractJsonRepo;
-use CL\LunaCore\Rel\AbstractRelMany;
-use CL\LunaCore\Rel\UpdateManyInterface;
-use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Model\Models;
-use CL\LunaCore\Repo\LinkMany;
+use Harp\JsonStore\AbstractJsonRepo;
+use Harp\Core\Rel\AbstractRelMany;
+use Harp\Core\Rel\UpdateManyInterface;
+use Harp\Core\Model\AbstractModel;
+use Harp\Core\Model\Models;
+use Harp\Core\Repo\LinkMany;
 
 /**
  * @author     Ivan Kerin

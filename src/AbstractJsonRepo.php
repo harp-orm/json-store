@@ -1,9 +1,9 @@
 <?php
 
-namespace CL\LunaJsonStore;
+namespace Harp\JsonStore;
 
-use CL\LunaCore\Save\AbstractSaveRepo;
-use CL\LunaCore\Model\Models;
+use Harp\Core\Save\AbstractSaveRepo;
+use Harp\Core\Model\Models;
 use InvalidArgumentException;
 
 /*

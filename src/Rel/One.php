@@ -1,13 +1,13 @@
 <?php
 
-namespace CL\LunaJsonStore\Rel;
+namespace Harp\JsonStore\Rel;
 
-use CL\LunaJsonStore\AbstractJsonRepo;
-use CL\LunaCore\Rel\AbstractRelOne;
-use CL\LunaCore\Rel\UpdateOneInterface;
-use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Model\Models;
-use CL\LunaCore\Repo\LinkOne;
+use Harp\JsonStore\AbstractJsonRepo;
+use Harp\Core\Rel\AbstractRelOne;
+use Harp\Core\Rel\UpdateOneInterface;
+use Harp\Core\Model\AbstractModel;
+use Harp\Core\Model\Models;
+use Harp\Core\Repo\LinkOne;
 
 /**
  * @author     Ivan Kerin

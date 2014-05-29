@@ -1,14 +1,14 @@
 <?php
 
-namespace CL\LunaJsonStore\Test;
+namespace Harp\JsonStore\Test;
 
 use CL\EnvBackup\Env;
 use CL\EnvBackup\FileParam;
-use CL\LunaJsonStore\AbstractJsonRepo;
-use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Model\Models;
-use CL\LunaJsonStore\Test\Repo;
-use CL\LunaJsonStore\Test\Model;
+use Harp\JsonStore\AbstractJsonRepo;
+use Harp\Core\Model\AbstractModel;
+use Harp\Core\Model\Models;
+use Harp\JsonStore\Test\Repo;
+use Harp\JsonStore\Test\Model;
 use InvalidArgumentException;
 
 class AbstractJsonRepoTest extends AbstractTestCase
@@ -23,7 +23,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::__construct
+     * @covers Harp\JsonStore\AbstractJsonRepo::__construct
      * @expectedException InvalidArgumentException
      */
     public function testConstructWrongFile()
@@ -32,8 +32,8 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::__construct
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::getFile
+     * @covers Harp\JsonStore\AbstractJsonRepo::__construct
+     * @covers Harp\JsonStore\AbstractJsonRepo::getFile
      */
     public function testConstructNormal()
     {
@@ -44,7 +44,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::findAll
+     * @covers Harp\JsonStore\AbstractJsonRepo::findAll
      */
     public function testFindAll()
     {
@@ -52,13 +52,13 @@ class AbstractJsonRepoTest extends AbstractTestCase
 
         $result = $repo->findAll();
 
-        $this->assertInstanceOf('CL\LunaJsonStore\Find', $result);
+        $this->assertInstanceOf('Harp\JsonStore\Find', $result);
         $this->assertSame($repo, $result->getRepo());
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::getContents
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::setContents
+     * @covers Harp\JsonStore\AbstractJsonRepo::getContents
+     * @covers Harp\JsonStore\AbstractJsonRepo::setContents
      */
     public function testContents()
     {
@@ -97,7 +97,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::update
+     * @covers Harp\JsonStore\AbstractJsonRepo::update
      */
     public function testUpdate()
     {
@@ -161,7 +161,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::delete
+     * @covers Harp\JsonStore\AbstractJsonRepo::delete
      */
     public function testDelete()
     {
@@ -190,7 +190,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::insert
+     * @covers Harp\JsonStore\AbstractJsonRepo::insert
      */
     public function testInsertEmpty()
     {
@@ -221,7 +221,7 @@ class AbstractJsonRepoTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\AbstractJsonRepo::insert
+     * @covers Harp\JsonStore\AbstractJsonRepo::insert
      */
     public function testInsertNotEmpty()
     {

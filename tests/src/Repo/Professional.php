@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\LunaJsonStore\Test\Repo;
+namespace Harp\JsonStore\Test\Repo;
 
 /**
  * @author     Ivan Kerin
@@ -18,7 +18,7 @@ class Professional extends User {
     {
         if (! self::$instance) {
             self::$instance = new Professional(
-                'CL\LunaJsonStore\Test\Model\Professional',
+                'Harp\JsonStore\Test\Model\Professional',
                 TEST_DIR.'/User.json'
             );
         }

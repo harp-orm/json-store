@@ -1,9 +1,9 @@
 <?php
 
-namespace CL\LunaJsonStore\Test\Repo;
+namespace Harp\JsonStore\Test\Repo;
 
-use CL\LunaJsonStore\Rel;
-use CL\LunaJsonStore\AbstractJsonRepo;
+use Harp\JsonStore\Rel;
+use Harp\JsonStore\AbstractJsonRepo;
 
 /**
  * @author     Ivan Kerin
@@ -21,7 +21,7 @@ class Address extends AbstractJsonRepo {
     {
         if (! self::$instance) {
             self::$instance = new Address(
-                'CL\LunaJsonStore\Test\Model\Address',
+                'Harp\JsonStore\Test\Model\Address',
                 TEST_DIR.'/Address.json'
             );
         }

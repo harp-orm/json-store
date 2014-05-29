@@ -1,9 +1,9 @@
 <?php
 
-namespace CL\LunaJsonStore\Test\Repo;
+namespace Harp\JsonStore\Test\Repo;
 
-use CL\LunaJsonStore\Rel;
-use CL\LunaJsonStore\AbstractJsonRepo;
+use Harp\JsonStore\Rel;
+use Harp\JsonStore\AbstractJsonRepo;
 
 /**
  * @author     Ivan Kerin
@@ -21,7 +21,7 @@ class Post extends AbstractJsonRepo {
     {
         if (! self::$instance) {
             self::$instance = new Post(
-                'CL\LunaJsonStore\Test\Model\Post',
+                'Harp\JsonStore\Test\Model\Post',
                 TEST_DIR.'/Post.json'
             );
         }

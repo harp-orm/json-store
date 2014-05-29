@@ -1,14 +1,17 @@
 <?php
 
-namespace CL\LunaJsonStore\Test;
+namespace Harp\JsonStore\Test;
 
-use CL\LunaJsonStore\Not;
+use Harp\JsonStore\Not;
 
+/**
+ * @coversDefaultClass Harp\JsonStore\Not
+ */
 class NotTest extends AbstractTestCase
 {
     /**
-     * @covers CL\LunaJsonStore\Not::__construct
-     * @covers CL\LunaJsonStore\Not::getValue
+     * @covers ::__construct
+     * @covers ::getValue
      */
     public function testConstruct()
     {

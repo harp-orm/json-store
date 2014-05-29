@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\LunaJsonStore\Test;
+namespace Harp\JsonStore\Test;
 
 use PHPUnit_Framework_TestCase;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace CL\LunaJsonStore\Test\Model;
+namespace Harp\JsonStore\Test\Model;
 
-use CL\LunaJsonStore\Test\Repo;
+use Harp\JsonStore\Test\Repo;
 
 /**
  * @author     Ivan Kerin

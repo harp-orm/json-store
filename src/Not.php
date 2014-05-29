@@ -1,6 +1,6 @@
 <?php
 
-namespace CL\LunaJsonStore;
+namespace Harp\JsonStore;
 
 /*
  * @author     Ivan Kerin

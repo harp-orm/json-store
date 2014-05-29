@@ -1,12 +1,15 @@
 <?php
 
-namespace CL\LunaJsonStore\Test;
+namespace Harp\JsonStore\Test;
 
-use CL\LunaJsonStore\Rel;
-use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Model\Models;
-use CL\LunaCore\Repo\LinkMany;
+use Harp\JsonStore\Rel;
+use Harp\Core\Model\AbstractModel;
+use Harp\Core\Model\Models;
+use Harp\Core\Repo\LinkMany;
 
+/**
+ * @coversDefaultClass Harp\JsonStore\Rel\Many
+ */
 class RelManyTest extends AbstractTestCase
 {
     public function getRepo()
@@ -18,8 +21,8 @@ class RelManyTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Rel\Many::__construct
-     * @covers CL\LunaJsonStore\Rel\Many::getKey
+     * @covers ::__construct
+     * @covers ::getKey
      */
     public function testConstruct()
     {
@@ -40,7 +43,7 @@ class RelManyTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Rel\Many::areLinked
+     * @covers ::areLinked
      */
     public function testAreLinked()
     {
@@ -65,7 +68,7 @@ class RelManyTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Rel\Many::hasForeign
+     * @covers ::hasForeign
      * @dataProvider dataHasForeign
      */
     public function testHasForeign($models, $expected)
@@ -76,7 +79,7 @@ class RelManyTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Rel\Many::loadForeign
+     * @covers ::loadForeign
      */
     public function testLoadForeign()
     {
@@ -116,7 +119,7 @@ class RelManyTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Rel\Many::update
+     * @covers ::update
      */
     public function testUpdate()
     {

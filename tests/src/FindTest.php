@@ -1,14 +1,17 @@
 <?php
 
-namespace CL\LunaJsonStore\Test;
+namespace Harp\JsonStore\Test;
 
-use CL\LunaJsonStore\Test\Model;
-use CL\LunaJsonStore\Test\Repo;
-use CL\LunaJsonStore\Find;
-use CL\LunaJsonStore\Not;
-use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Model\State;
+use Harp\JsonStore\Test\Model;
+use Harp\JsonStore\Test\Repo;
+use Harp\JsonStore\Find;
+use Harp\JsonStore\Not;
+use Harp\Core\Model\AbstractModel;
+use Harp\Core\Model\State;
 
+/**
+ * @coversDefaultClass Harp\JsonStore\Find
+ */
 class FindTest extends AbstractTestCase
 {
     public function getRepo()
@@ -32,7 +35,7 @@ class FindTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Find::isConditionMatch
+     * @covers ::isConditionMatch
      * @dataProvider dataIsConditionMatch
      */
     public function testIsConditionMatch($value, $conditon, $expected)
@@ -41,8 +44,8 @@ class FindTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Find::__construct
-     * @covers CL\LunaJsonStore\Find::getRepo
+     * @covers ::__construct
+     * @covers ::getRepo
      */
     public function testConstruct()
     {
@@ -54,17 +57,17 @@ class FindTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Find::where
-     * @covers CL\LunaJsonStore\Find::whereIn
-     * @covers CL\LunaJsonStore\Find::whereNot
-     * @covers CL\LunaJsonStore\Find::limit
-     * @covers CL\LunaJsonStore\Find::getLimit
-     * @covers CL\LunaJsonStore\Find::offset
-     * @covers CL\LunaJsonStore\Find::getOffset
-     * @covers CL\LunaJsonStore\Find::getConditions
-     * @covers CL\LunaJsonStore\Find::clearWhere
-     * @covers CL\LunaJsonStore\Find::clearLimit
-     * @covers CL\LunaJsonStore\Find::clearOffset
+     * @covers ::where
+     * @covers ::whereIn
+     * @covers ::whereNot
+     * @covers ::limit
+     * @covers ::getLimit
+     * @covers ::offset
+     * @covers ::getOffset
+     * @covers ::getConditions
+     * @covers ::clearWhere
+     * @covers ::clearLimit
+     * @covers ::clearOffset
      */
     public function testConditions()
     {
@@ -110,7 +113,7 @@ class FindTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Find::isMatch
+     * @covers ::isMatch
      * @dataProvider dataIsMatch
      */
     public function testIsMatch($properties, $expected)
@@ -148,7 +151,7 @@ class FindTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Find::newModel
+     * @covers ::newModel
      * @dataProvider dataNewModel
      */
     public function testNewModel($properties, $repo, $expected)
@@ -159,7 +162,7 @@ class FindTest extends AbstractTestCase
     }
 
     /**
-     * @covers CL\LunaJsonStore\Find::execute
+     * @covers ::execute
      */
     public function testExecute()
     {
@@ -170,7 +173,7 @@ class FindTest extends AbstractTestCase
         );
 
         $find = $this->getMock(
-            'CL\LunaJsonStore\Find',
+            'Harp\JsonStore\Find',
             ['isMatch'],
             [$repo]
         );

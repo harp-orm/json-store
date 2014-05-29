@@ -1,10 +1,10 @@
 <?php
 
-namespace CL\LunaJsonStore\Test\Repo;
+namespace Harp\JsonStore\Test\Repo;
 
-use CL\LunaJsonStore\Rel;
-use CL\LunaJsonStore\AbstractJsonRepo;
-use CL\Carpo\Assert;
+use Harp\JsonStore\Rel;
+use Harp\JsonStore\AbstractJsonRepo;
+use Harp\Validate\Assert;
 
 /**
  * @author     Ivan Kerin
@@ -22,7 +22,7 @@ class User extends AbstractJsonRepo {
     {
         if (! self::$instance) {
             self::$instance = new User(
-                'CL\LunaJsonStore\Test\Model\User',
+                'Harp\JsonStore\Test\Model\User',
                 TEST_DIR.'/User.json'
             );
         }

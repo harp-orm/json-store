@@ -1,10 +1,10 @@
 <?php
 
-namespace CL\LunaJsonStore;
+namespace Harp\JsonStore;
 
-use CL\LunaCore\Model\AbstractModel;
-use CL\LunaCore\Model\State;
-use CL\LunaCore\Save\AbstractFind;
+use Harp\Core\Model\AbstractModel;
+use Harp\Core\Model\State;
+use Harp\Core\Save\AbstractFind;
 
 /*
  * @author     Ivan Kerin

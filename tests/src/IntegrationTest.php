@@ -1,10 +1,10 @@
 <?php
 
-namespace CL\LunaJsonStore\Test;
+namespace Harp\JsonStore\Test;
 
 use CL\EnvBackup\Env;
 use CL\EnvBackup\FileParam;
-use CL\LunaJsonStore\AbstractJsonRepo;
+use Harp\JsonStore\AbstractJsonRepo;
 
 class IntegrationTest extends AbstractTestCase
 {
@@ -49,7 +49,7 @@ class IntegrationTest extends AbstractTestCase
                     "password": null,
                     "addressId": 1,
                     "isBlocked": true,
-                    "class": "CL\\\\LunaJsonStore\\\\Test\\\\Model\\\\User"
+                    "class": "Harp\\\\JsonStore\\\\Test\\\\Model\\\\User"
                 }
             }'),
             new FileParam(TEST_DIR.'/BlogPost.json', '{}'),
