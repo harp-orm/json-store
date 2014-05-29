@@ -73,7 +73,7 @@ abstract class AbstractJsonRepo extends AbstractSaveRepo
         $contents = $this->getContents();
 
         foreach ($models as $model) {
-            $contents[$model->getId()] = $model->getDataToSave();
+            $contents[$model->getId()] = $model->saveData()->getProperties();
         }
 
         $this->setContents($contents);
@@ -97,7 +97,7 @@ abstract class AbstractJsonRepo extends AbstractSaveRepo
         foreach ($models as $model) {
             $id = $contents ? max(array_keys($contents)) + 1 : 1;
 
-            $contents[$id] = $model->setId($id)->getDataToSave();
+            $contents[$id] = $model->setId($id)->saveData()->getProperties();
         }
 
         $this->setContents($contents);
