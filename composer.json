@@ -18,8 +18,7 @@
     "require": {
         "php": ">=5.4.0",
         "harp-orm/core": "dev-master",
-        "harp-orm/validate": "dev-master",
-        "clippings/util": "dev-master"
+        "harp-orm/validate": "dev-master"
     },
     "require-dev": {
         "clippings/env-backup": "~0.2.5"
