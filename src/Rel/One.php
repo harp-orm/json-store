@@ -84,11 +84,10 @@ class One extends AbstractRelOne implements UpdateOneInterface
     }
 
     /**
-     * @param AbstractModel $model
      * @param LinkOne       $link
      */
-    public function update(AbstractModel $model, LinkOne $link)
+    public function update(LinkOne $link)
     {
-        $model->{$this->key} = $link->get()->getId();
+        $link->getModel()->{$this->key} = $link->get()->getId();
     }
 }

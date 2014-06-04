@@ -127,7 +127,7 @@ class RelOneTest extends AbstractTestCase
         $user = new Model\User(['id' => 2]);
         $post = new Model\Post(['id' => 5]);
 
-        $rel->update($user, new LinkOne($rel, $post));
+        $rel->update(new LinkOne($user, $rel, $post));
 
         $this->assertEquals(5, $user->postId);
     }

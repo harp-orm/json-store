@@ -129,10 +129,10 @@ class RelManyTest extends AbstractTestCase
         $post1 = new Model\Post(['id' => 3, 'userId' => 2]);
         $post2 = new Model\Post(['id' => 5]);
 
-        $link = new LinkMany($rel, [$post1]);
+        $link = new LinkMany($user, $rel, [$post1]);
         $link->remove($post1)->add($post2);
 
-        $rel->update($user, $link);
+        $rel->update($link);
 
         $this->assertEquals(null, $post1->userId);
         $this->assertEquals(2, $post2->userId);
