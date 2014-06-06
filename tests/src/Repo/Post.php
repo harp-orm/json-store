@@ -12,21 +12,9 @@ use Harp\JsonStore\AbstractJsonRepo;
  */
 class Post extends AbstractJsonRepo {
 
-    private static $instance;
-
-    /**
-     * @return User
-     */
-    public static function get()
+    public static function newInstance()
     {
-        if (! self::$instance) {
-            self::$instance = new Post(
-                'Harp\JsonStore\Test\Model\Post',
-                TEST_DIR.'/Post.json'
-            );
-        }
-
-        return self::$instance;
+        return new Post('Harp\JsonStore\Test\Model\Post', TEST_DIR.'/Post.json');
     }
 
     public function initialize()

@@ -9,21 +9,9 @@ namespace Harp\JsonStore\Test\Repo;
  */
 class Professional extends User {
 
-    private static $instance;
-
-    /**
-     * @return User
-     */
-    public static function get()
+    public static function newInstance()
     {
-        if (! self::$instance) {
-            self::$instance = new Professional(
-                'Harp\JsonStore\Test\Model\Professional',
-                TEST_DIR.'/User.json'
-            );
-        }
-
-        return self::$instance;
+        return new Professional('Harp\JsonStore\Test\Model\Professional', TEST_DIR.'/User.json');
     }
 
     public function initialize()
