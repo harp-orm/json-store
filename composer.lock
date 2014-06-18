@@ -1,7 +1,8 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
     "hash": "035fb07320c163a51a6212d886ac3f5d",
     "packages": [
@@ -11,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "b9e54f78d02057eb184f3c83095be249370e16a1"
+                "reference": "879c491767c51d86ae55683e706516914631cf06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/b9e54f78d02057eb184f3c83095be249370e16a1",
-                "reference": "b9e54f78d02057eb184f3c83095be249370e16a1",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/879c491767c51d86ae55683e706516914631cf06",
+                "reference": "879c491767c51d86ae55683e706516914631cf06",
                 "shasum": ""
             },
             "require": {
@@ -49,20 +50,20 @@
                 "source": "https://github.com/harp-orm/core/tree/master",
                 "issues": "https://github.com/harp-orm/core/issues"
             },
-            "time": "2014-06-06 11:11:40"
+            "time": "2014-06-18 09:36:49"
         },
         {
             "name": "harp-orm/util",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/util.git",
-                "reference": "902c0d451126279fa0d5dbff7f3f99ce9e6cf9d2"
+                "reference": "66de94b09e584b00d1a67090e72f0e31454fab15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/util/zipball/902c0d451126279fa0d5dbff7f3f99ce9e6cf9d2",
-                "reference": "902c0d451126279fa0d5dbff7f3f99ce9e6cf9d2",
+                "url": "https://api.github.com/repos/harp-orm/util/zipball/66de94b09e584b00d1a67090e72f0e31454fab15",
+                "reference": "66de94b09e584b00d1a67090e72f0e31454fab15",
                 "shasum": ""
             },
             "type": "library",
@@ -84,7 +85,7 @@
                 }
             ],
             "description": "General purpose helper methods",
-            "time": "2014-05-31 11:21:41"
+            "time": "2014-06-12 07:03:18"
         },
         {
             "name": "harp-orm/validate",
@@ -92,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/validate.git",
-                "reference": "4287648c926e43ec668f17a8be507b521702853b"
+                "reference": "db2f10f46a0a822526e1dcbc9c6a4ae413a8537e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/validate/zipball/4287648c926e43ec668f17a8be507b521702853b",
-                "reference": "4287648c926e43ec668f17a8be507b521702853b",
+                "url": "https://api.github.com/repos/harp-orm/validate/zipball/db2f10f46a0a822526e1dcbc9c6a4ae413a8537e",
+                "reference": "db2f10f46a0a822526e1dcbc9c6a4ae413a8537e",
                 "shasum": ""
             },
             "type": "library",
@@ -119,7 +120,7 @@
                 }
             ],
             "description": "Object validaiton library",
-            "time": "2014-05-29 12:13:07"
+            "time": "2014-06-17 14:10:40"
         }
     ],
     "packages-dev": [
