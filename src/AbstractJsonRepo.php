@@ -73,7 +73,9 @@ abstract class AbstractJsonRepo extends AbstractSaveRepo
         $contents = $this->getContents();
 
         foreach ($models as $model) {
-            $contents[$model->getId()] = $this->serializeModel($model->getProperties());
+            $data = $model->getProperties();
+            $this->getSerializers()->serialize($data);
+            $contents[$model->getId()] = $data;
         }
 
         $this->setContents($contents);
@@ -97,7 +99,10 @@ abstract class AbstractJsonRepo extends AbstractSaveRepo
         foreach ($models as $model) {
             $id = $contents ? max(array_keys($contents)) + 1 : 1;
 
-            $contents[$id] = $this->serializeModel($model->setId($id)->getProperties());
+            $data = $model->setId($id)->getProperties();
+            $this->getSerializers()->serialize($data);
+
+            $contents[$id] = $data;
         }
 
         $this->setContents($contents);
