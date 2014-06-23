@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5b398b634abb494e9275754c54175088",
+    "hash": "dbb7891ad20c21a2ff6d8d683e03c12a",
     "packages": [
         {
             "name": "harp-orm/core",
@@ -12,18 +12,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "5a77fb09899a27d1aeee8024f1a4bb0436ff1518"
+                "reference": "e496f585d25f24510c7db2cb09a3d7b1be4aa70c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/5a77fb09899a27d1aeee8024f1a4bb0436ff1518",
-                "reference": "5a77fb09899a27d1aeee8024f1a4bb0436ff1518",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/e496f585d25f24510c7db2cb09a3d7b1be4aa70c",
+                "reference": "e496f585d25f24510c7db2cb09a3d7b1be4aa70c",
                 "shasum": ""
             },
             "require": {
-                "harp-orm/serializer": "dev-master",
+                "harp-orm/serializer": "~0.1.0",
                 "harp-orm/util": "~0.2.0",
-                "harp-orm/validate": "dev-master",
+                "harp-orm/validate": "~0.2.0",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -51,20 +51,20 @@
                 "source": "https://github.com/harp-orm/core/tree/master",
                 "issues": "https://github.com/harp-orm/core/issues"
             },
-            "time": "2014-06-19 13:20:26"
+            "time": "2014-06-23 07:14:50"
         },
         {
             "name": "harp-orm/serializer",
-            "version": "dev-master",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/serializer.git",
-                "reference": "da593dadbaa20a852ac3004428ecbc4aea5cedb2"
+                "reference": "1cbef206aa54cfc79dc4051d8bdc62d15681db93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/serializer/zipball/da593dadbaa20a852ac3004428ecbc4aea5cedb2",
-                "reference": "da593dadbaa20a852ac3004428ecbc4aea5cedb2",
+                "url": "https://api.github.com/repos/harp-orm/serializer/zipball/1cbef206aa54cfc79dc4051d8bdc62d15681db93",
+                "reference": "1cbef206aa54cfc79dc4051d8bdc62d15681db93",
                 "shasum": ""
             },
             "type": "library",
@@ -86,7 +86,7 @@
                 }
             ],
             "description": "Serialize object properties",
-            "time": "2014-06-19 13:51:49"
+            "time": "2014-06-21 17:01:33"
         },
         {
             "name": "harp-orm/util",
@@ -125,16 +125,16 @@
         },
         {
             "name": "harp-orm/validate",
-            "version": "dev-master",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/validate.git",
-                "reference": "db2f10f46a0a822526e1dcbc9c6a4ae413a8537e"
+                "reference": "5e110e9d195bb3ea36910c99c05a33320c8b7326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/validate/zipball/db2f10f46a0a822526e1dcbc9c6a4ae413a8537e",
-                "reference": "db2f10f46a0a822526e1dcbc9c6a4ae413a8537e",
+                "url": "https://api.github.com/repos/harp-orm/validate/zipball/5e110e9d195bb3ea36910c99c05a33320c8b7326",
+                "reference": "5e110e9d195bb3ea36910c99c05a33320c8b7326",
                 "shasum": ""
             },
             "type": "library",
@@ -156,7 +156,7 @@
                 }
             ],
             "description": "Object validaiton library",
-            "time": "2014-06-17 14:10:40"
+            "time": "2014-06-21 19:53:49"
         }
     ],
     "packages-dev": [
@@ -201,9 +201,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "harp-orm/core": 20,
-        "harp-orm/validate": 20,
-        "harp-orm/serializer": 20
+        "harp-orm/core": 20
     },
     "platform": {
         "php": ">=5.4.0"

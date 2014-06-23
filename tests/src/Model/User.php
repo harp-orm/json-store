@@ -3,6 +3,7 @@
 namespace Harp\JsonStore\Test\Model;
 
 use Harp\Core\Model\AbstractModel;
+use Harp\Core\Model\InheritedTrait;
 use Harp\JsonStore\Test\Repo;
 
 /**
@@ -12,17 +13,18 @@ use Harp\JsonStore\Test\Repo;
  */
 class User extends AbstractModel {
 
-    public function getRepo()
-    {
-        return Repo\User::get();
-    }
+    use InheritedTrait;
 
     public $id;
     public $name;
     public $password;
     public $addressId;
     public $isBlocked = false;
-    public $class;
+
+    public function getRepo()
+    {
+        return Repo\User::get();
+    }
 
     public function getAddress()
     {
